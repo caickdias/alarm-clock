@@ -21,10 +21,6 @@ function App() {
     document.title = "Alarm Clock";
   }, []);
 
-  useEffect(() => {
-    console.log(theme)
-  }, [theme])
-
   const toggleTheme = (themeMode: string) => {
     setTheme(themeMode);
   }

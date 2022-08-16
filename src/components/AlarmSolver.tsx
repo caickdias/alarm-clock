@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 
-type Props = {
-    activity: Boolean;
-}
 
-const AlarmSolver = ({ activity }: Props) => {
+const AlarmSolver = () => {
+  
+  const alarmSound =  useMemo(() => new Audio(require('../assets/alarm.mp3')), []);
+  const [isAlarmActive, setIsAlarmActive] = useState(false);
+
+  const playAlarm = () => {
+    alarmSound.loop = true;
+    alarmSound.currentTime = 0;
+    alarmSound.play();
+  }
+
+  const pauseAlarm = () => alarmSound.pause();
+
+  const toggleAlarm = () => {
+    isAlarmActive ? pauseAlarm() : playAlarm();
+    setIsAlarmActive(!isAlarmActive);
+  }
+
   return (
-    <div>AlarmSolver</div>
+    <div>
+      <button className='flex flex-row items-center justify-center' onClick={toggleAlarm}>
+        Alarm &nbsp;
+        <p className={`${isAlarmActive ? 'bg-green-600' : 'bg-red-500'} p-1`}>
+          {isAlarmActive ? 'ON' : 'OFF'}
+        </p>   
+      </button>   
+    </div>
   )
 }
 

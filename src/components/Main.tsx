@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import {
   TimeDisplayer,
   AlarmSolver,
+  NewAlarm,
+  NextAlarm,
 } from './'
 
 const Main = () => {
@@ -9,7 +11,7 @@ const Main = () => {
   const FLEX_CENTER = 'flex items-center justify-center';
 
   const [dateNow, setDateNow] = useState(new Date());
-  const [isAlarmActive, setIsAlarmActive] = useState(false);
+  const [isAlarmActive, setIsAlarmActive] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => {setDateNow(new Date())}, 1000);
@@ -20,24 +22,21 @@ const Main = () => {
     <div className={`${FLEX_CENTER} w-full h-3/4`}>
       
       <div className={`${FLEX_CENTER} flex-1`}>
-        <button className="">New alarm</button>        
+        <NewAlarm />
       </div>
-      
-      
-      <div className={`flex flex-1 flex-col h-full items-center justify-evenly`}>
-        
+            
+      <div className={`flex flex-1 flex-col h-full items-center justify-evenly`}>        
         <TimeDisplayer 
           date={dateNow} 
           showDayName
         />
-
         <div className={`${FLEX_CENTER}`}>          
-          <AlarmSolver activity={isAlarmActive} />
+          <AlarmSolver />
         </div>        
       </div>
 
       <div className={`${FLEX_CENTER} flex-1`}>
-        <span>Next Alarm</span>        
+        <NextAlarm />
       </div>
 
     </div>
