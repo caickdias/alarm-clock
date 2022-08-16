@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import {
+  Header,
+  Main,
+  Footer
+} from './components';
+
+const themeMap: Record<string, string> = {
+  'dark': 'text-white bg-zinc-800',
+  'light': 'bg-gray-200',
+}
+
 function App() {
+
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    document.title = "Alarm Clock";
+  }, []);
+
+  useEffect(() => {
+    console.log(theme)
+  }, [theme])
+
+  const toggleTheme = (themeMode: string) => {
+    setTheme(themeMode);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`flex flex-col items-center justify-around h-screen p-6 
+      ${themeMap[theme]} font-bold transition-all duration-700`}>
+      <Header 
+        theme={theme}  
+        toggleTheme={toggleTheme}
+      />
+      
+      <Main />
+      
+      <Footer />
     </div>
   );
 }
