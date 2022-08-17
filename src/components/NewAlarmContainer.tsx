@@ -1,18 +1,21 @@
 import React, { useState} from 'react'
 import { NewAlarm } from './';
 
-const NewAlarmContainer = () => {
+type Props = {
+    onSetNewAlarm: (date: Date | null) => void;
+}
+
+const NewAlarmContainer = ({ onSetNewAlarm }: Props) => {
     
     const FLEX_CENTER = 'flex items-center justify-center';
 
-    const [isCreatingNewAlarm, setIsCreatingNewAlarm] = useState<boolean>(false);
-    const [isAlarmActive, setIsAlarmActive] = useState<boolean>(true);
+    const [isCreatingNewAlarm, setIsCreatingNewAlarm] = useState<boolean>(false);    
 
     const handleCreatingNewAlarm = () => setIsCreatingNewAlarm(true);
     const cancelCreatingNewAlarm = () => setIsCreatingNewAlarm(false);
 
-    const setNewAlarm = (date: Date | null) => {
-        console.log(date);
+    const newAlarmHandler = (date: Date | null) => {
+        onSetNewAlarm(date)
         cancelCreatingNewAlarm();
     }
 
@@ -24,7 +27,7 @@ const NewAlarmContainer = () => {
         <NewAlarm 
           visible={isCreatingNewAlarm} 
           onCancel={cancelCreatingNewAlarm} 
-          onSetAlarm={setNewAlarm}
+          onSetAlarm={newAlarmHandler}
         />        
       </div>
   )
