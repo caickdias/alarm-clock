@@ -1,9 +1,11 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 
 
 const AlarmSolver = () => {
   
-  const alarmSound =  useMemo(() => new Audio(require('../assets/alarm.mp3')), []);
+  //const alarmSound =  useMemo(() => new Audio(require('../assets/alarm.mp3')), []);  
+  const alarmSound =  useRef(new Audio(require('../assets/alarm.mp3'))).current;
+  
   const [isAlarmActive, setIsAlarmActive] = useState(false);
 
   const playAlarm = () => {
