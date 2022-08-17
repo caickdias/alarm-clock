@@ -7,7 +7,7 @@ import {
 } from '../index';
 
 import { getTime, showHoursAndMinutes } from '../../utils/date';
-import { getAlarmsFromLocalStorage, setAlarmToLocalStorage } from '../../services/localStorage';
+import { getAlarmsFromLocalStorage, setAlarmToLocalStorage, cleanAlarmsFromLocalStorage } from '../../services/localStorage';
 
 const Main = () => {
 
@@ -16,7 +16,7 @@ const Main = () => {
   const [dateNow, setDateNow] = useState<Date>(new Date());
   const [newAlarm, setNewAlarm] = useState<Date | null>(null);
   const [nextAlarm, setNextAlarm] = useState<Date | null>(null);
-  const [alarmRing, setAlarmRing] = useState(false);
+  const [isAlarmRinging, setIsAlarmRinging] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {            
@@ -26,18 +26,27 @@ const Main = () => {
   }, []);
  
   useEffect(() => {
-    setNextAlarm(new Date(getAlarmsFromLocalStorage()));    
+    const alarms = getAlarmsFromLocalStorage();
+    if(alarms){
+      setNextAlarm(new Date(alarms));    
+    }
   }, [newAlarm]);
 
   useEffect(() => {
     if(checkAlarm(dateNow, nextAlarm)){
-      setAlarmRing(true);
+      setIsAlarmRinging(true);
     }
   }, [dateNow]);
 
 
   const checkAlarm = (date1: Date, date2: Date | null) => {
     return showHoursAndMinutes(date1) == showHoursAndMinutes(date2);
+  }
+
+  const handleTurnAlarmOff = () => {
+    setNextAlarm(null);
+    setIsAlarmRinging(false);
+    cleanAlarmsFromLocalStorage();
   }
 
   const setNewAlarmHandler = (date: Date | null) => {    
@@ -56,7 +65,7 @@ const Main = () => {
           showDayName
         />
         <div className={`${FLEX_CENTER}`}>          
-          <AlarmSolver />
+          <AlarmSolver isAlarmActive={isAlarmRinging} onTurnAlarmOff={handleTurnAlarmOff} />
         </div>        
       </div>
 

@@ -22,7 +22,7 @@ const NewAlarmContainer = ({ onSetNewAlarm }: Props) => {
     return (
     <div className={`${FLEX_CENTER} flex-1`}>
         { !isCreatingNewAlarm && 
-          <button className='text-xl' onClick={handleCreatingNewAlarm}>New Alarm</button> 
+          <button className='text-2xl' onClick={handleCreatingNewAlarm}>New Alarm</button> 
         }
         <NewAlarm 
           visible={isCreatingNewAlarm} 

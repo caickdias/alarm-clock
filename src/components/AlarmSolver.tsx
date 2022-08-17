@@ -1,12 +1,23 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
+type Props = {
+  isAlarmActive: boolean;
+  onTurnAlarmOff: () => void;
+}
 
-const AlarmSolver = () => {
+const AlarmSolver = ({ isAlarmActive, onTurnAlarmOff }: Props) => {
   
   //const alarmSound =  useMemo(() => new Audio(require('../assets/alarm.mp3')), []);  
   const alarmSound =  useRef(new Audio(require('../assets/alarm.mp3'))).current;
   
-  const [isAlarmActive, setIsAlarmActive] = useState(false);
+  useEffect(() => {
+    if(isAlarmActive){
+      playAlarm();
+    }
+    else {
+      pauseAlarm();
+    }
+  }, [isAlarmActive]);
 
   const playAlarm = () => {
     alarmSound.loop = true;
@@ -17,8 +28,9 @@ const AlarmSolver = () => {
   const pauseAlarm = () => alarmSound.pause();
 
   const toggleAlarm = () => {
-    isAlarmActive ? pauseAlarm() : playAlarm();
-    setIsAlarmActive(!isAlarmActive);
+    if(isAlarmActive){
+      onTurnAlarmOff();
+    }
   }
 
   return (
