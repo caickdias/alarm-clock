@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/alarm-clock/static/css/main.131812da.css",
-    "main.js": "/alarm-clock/static/js/main.30309fcc.js",
+    "main.css": "/alarm-clock/static/css/main.0aa43f30.css",
+    "main.js": "/alarm-clock/static/js/main.f2dd6df0.js",
     "static/media/alarm.mp3": "/alarm-clock/static/media/alarm.cfdca2a921cf977e4c58.mp3",
     "index.html": "/alarm-clock/index.html",
-    "main.131812da.css.map": "/alarm-clock/static/css/main.131812da.css.map",
-    "main.30309fcc.js.map": "/alarm-clock/static/js/main.30309fcc.js.map"
+    "main.0aa43f30.css.map": "/alarm-clock/static/css/main.0aa43f30.css.map",
+    "main.f2dd6df0.js.map": "/alarm-clock/static/js/main.f2dd6df0.js.map"
   },
   "entrypoints": [
-    "static/css/main.131812da.css",
-    "static/js/main.30309fcc.js"
+    "static/css/main.0aa43f30.css",
+    "static/js/main.f2dd6df0.js"
   ]
 }
