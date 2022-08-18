@@ -4,6 +4,17 @@
 
 An alarm clock where you have to solve given equation to turn it off
 
+# Patch notes
+
+```
+v0.1.0
+- Add one alarm time and save it in local storage
+- Retrieve alarm from local storage
+- Generate random first degree equation
+- Solve equation to turn alarm off
+- Dark/light mode
+```
+
 # Getting started
 
 ## Dependencies
