@@ -1,4 +1,4 @@
-You can see this project running [here](https://caickdias.github.io/alarm-clock/);
+## You can see this project running live [here](https://caickdias.github.io/alarm-clock/).
 
 # Alarm clock that can only be turned off by solving an equation
 
