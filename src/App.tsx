@@ -7,7 +7,6 @@ import {
   Footer
 } from './components';
 
-
 const themeMap: Record<string, string> = {
   'dark': 'text-white bg-zinc-800',
   'light': 'bg-gray-200',
@@ -16,10 +15,6 @@ const themeMap: Record<string, string> = {
 function App() {
 
   const [theme, setTheme] = useState('dark');
-
-  useEffect(() => {
-    document.title = "Alarm Clock";
-  }, []);
 
   const toggleTheme = (themeMode: string) => {
     setTheme(themeMode);

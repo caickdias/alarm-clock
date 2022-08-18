@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import EquationContainer from './EquationContainer'
 
 import { generateFirstDegreeEquation } from '../services/data/equations';
+import { AlarmLabelSwitch } from '.';
 
 type Props = {
   isAlarmActive: boolean;
@@ -41,12 +42,8 @@ const AlarmSolver = ({ isAlarmActive, onTurnAlarmOff }: Props) => {
 
   return (
     <div className='flex flex-col'>
-      <button className='flex flex-row items-center justify-center mb-4'>
-        Alarm &nbsp;
-        <p className={`${isAlarmActive ? 'bg-green-600' : 'bg-red-500'} p-1`}>
-          {isAlarmActive ? 'ON' : 'OFF'}
-        </p>   
-      </button>   
+        
+      <AlarmLabelSwitch isOn={isAlarmActive} />
 
       { isAlarmActive &&
         <EquationContainer 

@@ -6,3 +6,4 @@ export { default as AlarmSolver } from './AlarmSolver';
 export { default as NewAlarm } from './NewAlarm';
 export { default as NextAlarm } from './NextAlarm';
 export { default as NewAlarmContainer} from './NewAlarmContainer';
+export { default as AlarmLabelSwitch} from './AlarmLabelSwitch';

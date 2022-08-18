@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { BsAlarm, BsMoonStarsFill, BsSunFill } from 'react-icons/bs';
+import { FiSettings } from 'react-icons/fi';
 
 type Props = {
   theme: string;
@@ -9,6 +10,8 @@ type Props = {
 
 const Header = ({ theme, toggleTheme }: Props) => {
   
+  const FLEX_CENTER = 'flex flex-1 items-end justify-center';
+
   const changeTheme = () => {
     theme == 'dark'
     ? toggleTheme('light')
@@ -18,24 +21,26 @@ const Header = ({ theme, toggleTheme }: Props) => {
   return (
     <div className="flex w-full items-center justify-evenly">
       
-      <div className="flex flex-1 items-end justify-center">
+      <div className={`${FLEX_CENTER}`}>
         <button onClick={changeTheme}>
           { theme == 'dark'
-            ? <BsSunFill size={25} color='white' />
-            : <BsMoonStarsFill size={25} color='black' />
+            ? <BsSunFill size={25} />
+            : <BsMoonStarsFill size={25} />
           }
         </button>
       </div>
 
-      <div className='flex flex-1 items-center justify-center'>
+      <div className={`${FLEX_CENTER}`}>
         <BsAlarm size={30} />
         <h1 className="text-4xl font-bold ml-4">
           You WILL wake up!
         </h1>
       </div>
 
-      <div className="flex flex-1">
-
+      <div className={`${FLEX_CENTER}`}>
+        <button onClick={changeTheme}>
+          <FiSettings size={25} />    
+        </button>
       </div>
     </div>
   )
