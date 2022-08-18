@@ -1,4 +1,4 @@
-<img src="https://github.com/caickdias/alarm-clock/blob/master/examples/app.png" width="20%" height="20%"/>
+<img src="https://github.com/caickdias/alarm-clock/blob/master/examples/app.png" width="40%" height="40%"/>
 
 ## You can see this project running live [here](https://caickdias.github.io/alarm-clock/).
 
