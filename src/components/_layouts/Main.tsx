@@ -59,14 +59,14 @@ const Main = () => {
       
       <NewAlarmContainer onSetNewAlarm={setNewAlarmHandler} />
             
-      <div className={`flex flex-1 flex-col h-full items-center justify-evenly`}>        
+      <div className={`flex flex-1 flex-col h-full items-center justify-center`}>        
         <TimeDisplayer 
           date={dateNow} 
           showDayName
         />
-        <div className={`${FLEX_CENTER}`}>          
-          <AlarmSolver isAlarmActive={isAlarmRinging} onTurnAlarmOff={handleTurnAlarmOff} />
-        </div>        
+        
+        <AlarmSolver isAlarmActive={isAlarmRinging} onTurnAlarmOff={handleTurnAlarmOff} />
+        
       </div>
 
       <div className={`${FLEX_CENTER} flex-1 flex-col text-2xl`}>

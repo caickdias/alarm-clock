@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import {
@@ -7,6 +6,7 @@ import {
   Main,
   Footer
 } from './components';
+
 
 const themeMap: Record<string, string> = {
   'dark': 'text-white bg-zinc-800',
@@ -26,8 +26,7 @@ function App() {
   }
 
   return (
-    <div className={`flex flex-col items-center justify-around h-screen p-6 ${themeMap[theme]} font-bold transition-all duration-700`}>
-      
+    <div className={`flex flex-col items-center justify-around h-screen p-6 ${themeMap[theme]} font-bold transition-all duration-700`}>      
       <Header 
         theme={theme}  
         toggleTheme={toggleTheme}
