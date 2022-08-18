@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-import { NewAlarm } from './';
+import { NewAlarm } from '..';
 
 type Props = {
     onSetNewAlarm: (date: Date | null) => void;

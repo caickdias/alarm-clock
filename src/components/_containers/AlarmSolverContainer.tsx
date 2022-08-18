@@ -2,18 +2,18 @@ import React, { useEffect, useState, useRef } from 'react'
 
 import EquationContainer from './EquationContainer'
 
-import { generateFirstDegreeEquation } from '../services/data/equations';
-import { AlarmLabelSwitch } from '.';
+import { generateFirstDegreeEquation } from '../../services/data/equations';
+import { AlarmLabelSwitch } from '..';
 
 type Props = {
   isAlarmActive: boolean;
   onTurnAlarmOff: () => void;
 }
 
-const AlarmSolver = ({ isAlarmActive, onTurnAlarmOff }: Props) => {
+const AlarmSolverContainer = ({ isAlarmActive, onTurnAlarmOff }: Props) => {
   
   //const alarmSound =  useMemo(() => new Audio(require('../assets/alarm.mp3')), []);  
-  const alarmSound =  useRef(new Audio(require('../assets/alarm.mp3'))).current;
+  const alarmSound =  useRef(new Audio(require('../../assets/alarm.mp3'))).current;
   const [currentEquation, setCurrentEquation] = useState<any>({});
 
   useEffect(() => {
@@ -55,4 +55,4 @@ const AlarmSolver = ({ isAlarmActive, onTurnAlarmOff }: Props) => {
   )
 }
 
-export default AlarmSolver
+export default AlarmSolverContainer

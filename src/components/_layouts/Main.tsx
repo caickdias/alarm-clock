@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import {
   TimeDisplayer,
-  AlarmSolver,
-  NewAlarmContainer,
-  NextAlarm,
+  AlarmSolverContainer,
+  NewAlarmContainer,  
 } from '../index';
 
-import { getTime, showHoursAndMinutes } from '../../utils/date';
+import { showHoursAndMinutes } from '../../utils/date';
 import { getAlarmsFromLocalStorage, setAlarmToLocalStorage, cleanAlarmsFromLocalStorage } from '../../services/localStorage';
 
 const Main = () => {
@@ -65,7 +64,10 @@ const Main = () => {
           showDayName
         />
         
-        <AlarmSolver isAlarmActive={isAlarmRinging} onTurnAlarmOff={handleTurnAlarmOff} />
+        <AlarmSolverContainer 
+          isAlarmActive={isAlarmRinging} 
+          onTurnAlarmOff={handleTurnAlarmOff} 
+        />
         
       </div>
 
