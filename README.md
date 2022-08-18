@@ -1,3 +1,5 @@
+<img src="https://github.com/caickdias/alarm-clock/blob/main/examples/app.png" width="20%" height="20%"/>
+
 ## You can see this project running live [here](https://caickdias.github.io/alarm-clock/).
 
 # Alarm clock that can only be turned off by solving an equation
@@ -46,6 +48,7 @@ npm start
 ## Built with
 
 [React](https://reactjs.org/): React is a free and open-source front-end JavaScript library for building user interfaces based on UI components.
+
 [MUI](https://mui.com/): MUI offers a comprehensive suite of UI tools to help you ship new features faster.
 
 ## License
