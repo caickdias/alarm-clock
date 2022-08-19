@@ -38,9 +38,7 @@ const Header = ({ theme, toggleTheme }: Props) => {
       </div>
 
       <div className={`${FLEX_CENTER}`}>
-        <button onClick={changeTheme}>
-          <FiSettings size={25} />    
-        </button>
+      
       </div>
     </div>
   )
